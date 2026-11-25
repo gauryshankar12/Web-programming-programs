@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Interactive Image Gallery</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>My Image Gallery</h1>
+        <p>Explore beautiful moments</p>
+    </header>
+
+    <main>
+        <section class="gallery" id="gallery">
+
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80"
+                 alt="Beautiful mountain landscape">
+
+            <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800&q=80"
+                 alt="Mountain lake">
+
+            <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=800&q=80"
+                 alt="Sunrise in nature">
+
+            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=80"
+                 alt="Green forest">
+
+            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80"
+                 alt="Lake surrounded by mountains">
+
+            <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=800&q=80"
+                 alt="Ocean waves">
+
+        </section>
+    </main>
+
+    <!-- Slideshow Modal -->
+    <div class="modal" id="modal">
+
+        <button class="close" id="closeBtn"
+                aria-label="Close slideshow">&times;</button>
+
+        <button class="nav-btn prev" id="prevBtn"
+                aria-label="Previous image">&#10094;</button>
+
+        <img id="slideImage" src="" alt="Selected gallery image">
+
+        <button class="nav-btn next" id="nextBtn"
+                aria-label="Next image">&#10095;</button>
+
+        <div class="controls">
+            <p id="imageCount">Image 1 of 6</p>
+            <button id="autoBtn">▶ Auto Play</button>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 My Image Gallery</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
