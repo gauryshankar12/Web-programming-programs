@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Audivelle | Wireless Headphones</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <a href="#home" class="logo">Audivelle<span>.</span></a>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+        </nav>
+
+        <button class="signin-btn" onclick="openSignIn()">
+            Sign In
+        </button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+            <p class="tag">DISCOVER YOUR SOUND</p>
+
+            <h1>
+                Feel Every Beat.<br>
+                <span>Live Every Moment.</span>
+            </h1>
+
+            <p class="description">
+                Experience beautiful sound, powerful bass,
+                and all-day comfort with Audivelle wireless
+                headphones.
+            </p>
+
+            <h2 class="price">₹2,499</h2>
+
+            <a href="#features" class="btn">Explore Now →</a>
+
+            <p class="small-text">
+                Premium sound. Everyday comfort.
+            </p>
+        </div>
+
+        <div class="product-image">
+            <div class="circle circle-one"></div>
+            <div class="circle circle-two"></div>
+            <div class="headphone">🎧</div>
+            <span class="image-label">PURE SOUND</span>
+        </div>
+
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+
+        <p class="tag">MADE FOR MUSIC LOVERS</p>
+        <h2>Sound You'll Love</h2>
+
+        <p class="section-description">
+            Simple design. Powerful performance.
+        </p>
+
+        <div class="feature-container">
+
+            <div class="feature-card">
+                <div class="feature-icon">🔊</div>
+                <h3>Premium Sound</h3>
+                <p>
+                    Enjoy clear audio and rich bass
+                    with every song.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔋</div>
+                <h3>Long Battery</h3>
+                <p>
+                    Enjoy your favourite music
+                    for longer.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🎵</div>
+                <h3>Wireless Freedom</h3>
+                <p>
+                    Enjoy comfortable listening
+                    without tangled wires.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+
+        <div class="about-content">
+            <p class="tag">OUR PHILOSOPHY</p>
+
+            <h2>Music Makes Every Moment Better.</h2>
+
+            <p>
+                Audivelle brings together style, comfort,
+                and a love for music to make your everyday
+                listening experience special.
+            </p>
+
+            <a href="#buy" class="btn">Discover Audivelle →</a>
+        </div>
+
+        <div class="about-icon">♫</div>
+
+    </section>
+
+    <!-- Order Section -->
+    <section class="buy-section" id="buy">
+
+        <p class="tag">YOUR NEXT FAVOURITE SOUND</p>
+
+        <h2>Your Music. Your Moment.</h2>
+
+        <p>
+            Discover your next favourite listening experience.
+        </p>
+
+        <a href="mailto:orders@example.com?subject=Audivelle%20Order"
+           class="btn">
+            Order Now →
+        </a>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <a href="#home" class="footer-logo">Audivelle<span>.</span></a>
+
+        <p>
+            © 2026 Audivelle. All rights reserved.
+        </p>
+
+        <a href="#" onclick="openSignIn(); return false;">
+            My Account
+        </a>
+    </footer>
+
+
+    <!-- SIGN IN POPUP -->
+    <div class="signin-modal" id="signinModal">
+
+        <div class="signin-box">
+
+            <button class="close-btn"
+                    onclick="closeSignIn()"
+                    aria-label="Close sign in">
+                &times;
+            </button>
+
+            <div class="signin-logo">
+                Audivelle<span>.</span>
+            </div>
+
+            <p class="tag">WELCOME BACK</p>
+
+            <h2 id="formTitle">Sign in to your account</h2>
+
+            <p class="signin-description" id="formDescription">
+                Your favourite sounds are waiting for you.
+            </p>
+
+            <form id="signinForm">
+
+                <label for="email">Email Address</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    autocomplete="email"
+                    required
+                >
+
+                <label for="password">Password</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                    autocomplete="current-password"
+                    minlength="6"
+                    required
+                >
+
+                <div class="signin-options">
+
+                    <label class="remember">
+                        <input type="checkbox" id="remember">
+                        Remember me
+                    </label>
+
+                    <a href="mailto:support@example.com">
+                        Need help?
+                    </a>
+
+                </div>
+
+                <button type="submit" class="signin-submit"
+                        id="submitBtn">
+                    Sign In →
+                </button>
+
+            </form>
+
+            <p class="signup-text" id="signupText">
+                New to Audivelle?
+                <a href="#" id="signupLink">Create an account</a>
+            </p>
+
+            <p id="signinMessage" class="signin-message"
+               role="status" aria-live="polite"></p>
+
+        </div>
+    </div>
+
+
+    <!-- JavaScript -->
+    <script>
+        const modal = document.getElementById("signinModal");
+        const form = document.getElementById("signinForm");
+        const message = document.getElementById("signinMessage");
+
+        let isSignup = false;
+
+        // Open the sign-in popup
+        function openSignIn() {
+            isSignup = false;
+            updateForm();
+            modal.style.display = "flex";
+            document.body.style.overflow = "hidden";
+            document.getElementById("email").focus();
+        }
+
+        // Close the popup
+        function closeSignIn() {
+            modal.style.display = "none";
+            document.body.style.overflow = "";
+            message.textContent = "";
+        }
+
+        // Update the form for sign-in or account creation
+        function updateForm() {
+            document.getElementById("formTitle").textContent =
+                isSignup ? "Create your account" : "Sign in to your account";
+
+            document.getElementById("formDescription").textContent =
+                isSignup
+                ? "Join Audivelle and discover your sound."
+                : "Your favourite sounds are waiting for you.";
+
+            document.getElementById("submitBtn").textContent =
+                isSignup ? "Create Account →" : "Sign In →";
+
+            document.getElementById("signupText").innerHTML =
+                isSignup
+                ? 'Already have an account? <a href="#" id="signupLink">Sign In</a>'
+                : 'New to Audivelle? <a href="#" id="signupLink">Create an account</a>';
+
+            document.getElementById("password").autocomplete =
+                isSignup ? "new-password" : "current-password";
+
+            message.textContent = "";
+        }
+
+        // Switch between sign-in and sign-up screens
+        document.getElementById("signupLink").addEventListener("click", switchForm);
+
+        function switchForm(event) {
+            event.preventDefault();
+            isSignup = !isSignup;
+            updateForm();
+            document.getElementById("email").focus();
+        }
+
+        // Handle form submission
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value;
+
+            if (!email || password.length < 6) {
+                message.textContent =
+                    "Please enter a valid email and a password of at least 6 characters.";
+                return;
+            }
+
+            if (isSignup) {
+                message.textContent =
+                    "Form validated! Connect a backend to create your account securely.";
+            } else {
+                message.textContent =
+                    "Form validated! Connect a backend to verify your account securely.";
+            }
+        });
+
+        // Close when clicking outside the popup
+        modal.addEventListener("click", function(event) {
+            if (event.target === modal) {
+                closeSignIn();
+            }
+        });
+
+        // Close using the Escape key
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Escape" && modal.style.display === "flex") {
+                closeSignIn();
+            }
+        });
+
+        // Keep the sign-up link working after switching screens
+        document.getElementById("signupText").addEventListener("click", function(event) {
+            if (event.target.id === "signupLink") {
+                switchForm(event);
+            }
+        });
+    </script>
+
+</body>
+</html>
